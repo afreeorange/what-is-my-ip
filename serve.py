@@ -45,7 +45,7 @@ class MyHTTPRequestHandler(BaseHTTPRequestHandler):
         response_code = 200
 
         # Use freegeoip.net to query for more details if requested
-        if '?full' in self.path:
+        if '?full' in self.path or '?f' in self.path:
             try:
                 data = self.__tabulate_results(
                     json.loads(
