@@ -9,13 +9,14 @@ import urllib.request
 
 class MyHTTPRequestHandler(BaseHTTPRequestHandler):
     def __tabulate_results(self, json_obj):
+        col_width = len(max(json_obj, key=len))
         table = ''
 
         for k, v in json_obj.items():
             table += '{:{width}} : {}\n'.format(
                 capwords(' '.join(k.split('_'))),
                 v,
-                width=len(max(json_obj, key=len))
+                width=col_width
             )
 
         return table
