@@ -1,4 +1,4 @@
-A super-simple Python 3 service that tells me what my IP address is. Will look for a header called `X-Real-IP` if the client IP is found to be `127.0.0.1` (helps if behind something like Nginx.)
+A super-simple Python 3-based service (standard library only) that tells me what my IP address is when I connect to it. Will look for a header called `X-Real-IP` if the client IP is found to be `127.0.0.1` (helps if behind something like Nginx.)
 
 If `?full` or `?f` is specified as a query string, will attempt to look up the [freegeoip](https://freegeoip.net) service for GeoIP data.
 
