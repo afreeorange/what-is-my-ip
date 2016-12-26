@@ -68,9 +68,20 @@ class MyHTTPRequestHandler(BaseHTTPRequestHandler):
 
 
 def run(port):
-    server = HTTPServer(('', port), MyHTTPRequestHandler)
-    server.serve_forever()
+    try:
+        server = HTTPServer(('', port), MyHTTPRequestHandler)
+        print('Started service on 0.0.0.0:{}'.format(port))
+        server.serve_forever()
+    except KeyboardInterrupt:
+        server.socket.close()
 
 
 if __name__ == '__main__':
-    run(int(sys.argv[1]) if len(sys.argv) == 2 else 9000)
+    try:
+        run(int(sys.argv[1]) if len(sys.argv) == 2 else 9000)
+    except ValueError:
+        print('Ports must be integers', file=sys.stderr)
+        sys.exit(1)
+    except OSError as e:
+        print('Are you using that port? ({})'.format(str(e)), file=sys.stderr)
+        sys.exit(1)
