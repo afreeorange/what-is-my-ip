@@ -15,10 +15,10 @@ Usage
 So to query, I simply
 
 ```bash
-    # Basic info
-    curl https://nikhil.io/ip
+# Basic info
+curl https://nikhil.io/ip
 
-    # GeoIP info
-    curl https://nikhil.io/ip?f
-    curl https://nikhil.io/ip?full
+# GeoIP info
+curl https://nikhil.io/ip?f
+curl https://nikhil.io/ip?full
 ```
