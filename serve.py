@@ -85,4 +85,4 @@ if __name__ == '__main__':
         sys.exit(1)
     except OSError as e:
         print('Are you using that port? ({})'.format(str(e)), file=sys.stderr)
-        sys.exit(1)
+        sys.exit(2)
